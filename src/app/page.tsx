@@ -1,84 +1,70 @@
-import { HotelMap, type HotelMarker } from "@/components/HotelMap";
+import Home from "./client";
 
-const sampleHotels: HotelMarker[] = [
-  {
-    id: "hudson",
-    name: "Hudson View Hotel",
-    rating: 4.6,
-    price: 215,
-    lat: 40.762697,
-    lng: -73.985664,
-  },
-  {
-    id: "chelsea",
-    name: "Chelsea Garden Suites",
-    rating: 4.4,
-    price: 185,
-    lat: 40.7465,
-    lng: -73.9982,
-  },
-  {
-    id: "soho",
-    name: "SoHo Boutique Stay",
-    rating: 4.8,
-    price: 265,
-    lat: 40.7233,
-    lng: -74.003,
-  },
-  {
-    id: "bk-bridge",
-    name: "Brooklyn Bridge Hotel",
-    rating: 4.5,
-    price: 175,
-    lat: 40.7033,
-    lng: -73.9903,
-  },
-  {
-    id: "lic",
-    name: "Long Island City Towers",
-    rating: 4.1,
-    price: 145,
-    lat: 40.744,
-    lng: -73.9485,
-  },
-];
+export const runtime = "edge";
+export type InitialData = {
+  location_id: number;
+  city?: string;
+  country: string;
+  longitude: number;
+  latitude: number;
+  currency: string;
+};
 
-export default function Home() {
-  return (
-    <div className="min-h-screen bg-slate-50 py-12">
-      <main className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 lg:px-10">
-        <header className="space-y-4 text-center lg:text-left">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-600">
-            MapFirst SDK
-          </p>
-        </header>
+export default async function MapPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ mfid: string; lang: string }>;
+  searchParams: Promise<{
+    city?: string;
+    country?: string;
+    currency?: string;
+    variant?: string;
+    query?: string;
+    color?: string;
+  }>;
+}) {
+  const { mfid, lang } = await params;
+  const { city, country, currency, variant, query, color } = await searchParams;
+  // const defaultCurrency = getCurrencyForLocale(lang);
 
-        <section className="grid gap-10 lg:grid-cols-2">
-          <article className="space-y-4">
-            <div>
-              <h2 className="text-lg font-semibold text-slate-900">Mapbox</h2>
-            </div>
-            <HotelMap
-              provider="mapbox"
-              markers={sampleHotels}
-              className="min-h-[420px]"
-            />
-          </article>
+  const initial_data: InitialData = {
+    longitude: -6.260296,
+    latitude: 53.349801,
+    city: "Dublin",
+    country: "Ireland",
+    location_id: 186605,
+    currency: "USD",
+  };
+  if (currency) {
+    initial_data.currency = currency;
+  }
 
-          <article className="space-y-4">
-            <div>
-              <h2 className="text-lg font-semibold text-slate-900">
-                Google Maps
-              </h2>
-            </div>
-            <HotelMap
-              provider="google"
-              markers={sampleHotels}
-              className="min-h-[420px]"
-            />
-          </article>
-        </section>
-      </main>
-    </div>
-  );
+  if ((city && country) || country) {
+    const geoResponse = await fetch(
+      `${
+        process.env.NEXT_PUBLIC_BACKEND_URL
+      }/geo-lookup?country=${encodeURIComponent(country)}${
+        city ? `&city=${encodeURIComponent(city)}` : ""
+      }`
+    );
+    if (geoResponse.ok) {
+      const geoData = await geoResponse.json();
+      if (
+        geoData.location_name &&
+        geoData.path3_name &&
+        geoData.location_name === geoData.path3_name
+      )
+        initial_data.city = undefined;
+      if (geoData.location_name) initial_data.city = geoData.location_name;
+      if (geoData.path3_name) initial_data.country = geoData.path3_name;
+      initial_data.longitude = geoData.longitude;
+      initial_data.latitude = geoData.latitude;
+      initial_data.location_id = geoData.location_id;
+    } else {
+      console.error("Geo mapping fetch failed:", geoResponse.statusText);
+    }
+  }
+
+  return <Home locationData={initial_data} />;
 }
