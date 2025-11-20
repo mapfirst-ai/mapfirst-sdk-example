@@ -12,8 +12,8 @@ importers:
         specifier: ^2.6.2
         version: 2.6.2
       '@mapfirst.ai/react':
-        specifier: ^0.0.4
-        version: 0.0.4(react@19.2.0)
+        specifier: ^0.0.7
+        version: 0.0.7(react@19.2.0)
       '@react-google-maps/api':
         specifier: ^2.20.7
         version: 2.20.7(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -29,6 +29,9 @@ importers:
       react-dom:
         specifier: 19.2.0
         version: 19.2.0(react@19.2.0)
+      swiper:
+        specifier: ^12.0.3
+        version: 12.0.3
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4.1.17
@@ -379,11 +382,11 @@ packages:
     resolution: {integrity: sha512-Es6WcD0nO5l+2BOQS4uLfNPYQaNDfbot3X1XUoloz+x0mPDS3eeORZJl06HXjwBG1fOGwCRnzK88LMdxKRrd6Q==}
     engines: {node: '>=6.0.0'}
 
-  '@mapfirst.ai/core@0.0.3':
-    resolution: {integrity: sha512-roSa1fMtDUSrggfQ/In4PeujcmY4FLrVmF5iDBW8jhi0Np5zZ2y//FQZaEYTvhOmWWPj2ko57sYb0VMn7zwJfw==}
+  '@mapfirst.ai/core@0.0.6':
+    resolution: {integrity: sha512-gT0fTk1tfhyIRWPFfru+jWbp0AP1Z2+On2MWaFu2slziJXoIfvegJlH2DJqQhSQRs0XTdYh42q20dFgsCilQag==}
 
-  '@mapfirst.ai/react@0.0.4':
-    resolution: {integrity: sha512-l5S4SC8KzdbkHTNhI3eNoiHx4cyJj8OiDsDy8XSv6TB5BFbSN5M57gxqm4/kW3hQauq8rN8okdL/XmDnauHL+Q==}
+  '@mapfirst.ai/react@0.0.7':
+    resolution: {integrity: sha512-CFrU0Q6wRtJ3eEbLDGhvspLflQmFhZ8ehNFbY35xn62iJ4lL7iNdMLaLXVF8LUj9lUxehpldsL9DRiD28bQd3A==}
     peerDependencies:
       react: '>=17 || >=18'
 
@@ -1943,6 +1946,10 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
+  swiper@12.0.3:
+    resolution: {integrity: sha512-BHd6U1VPEIksrXlyXjMmRWO0onmdNPaTAFduzqR3pgjvi7KfmUCAm/0cj49u2D7B0zNjMw02TSeXfinC1hDCXg==}
+    engines: {node: '>= 4.7.0'}
+
   tailwindcss@4.1.17:
     resolution: {integrity: sha512-j9Ee2YjuQqYT9bbRTfTZht9W/ytp5H+jJpZKiYdP/bpnXARAuELt9ofP0lPnmHjbga7SNQIxdTAXCmtKVYjN+Q==}
 
@@ -2392,11 +2399,11 @@ snapshots:
 
   '@mapbox/whoots-js@3.1.0': {}
 
-  '@mapfirst.ai/core@0.0.3': {}
+  '@mapfirst.ai/core@0.0.6': {}
 
-  '@mapfirst.ai/react@0.0.4(react@19.2.0)':
+  '@mapfirst.ai/react@0.0.7(react@19.2.0)':
     dependencies:
-      '@mapfirst.ai/core': 0.0.3
+      '@mapfirst.ai/core': 0.0.6
       react: 19.2.0
 
   '@napi-rs/wasm-runtime@0.2.12':
@@ -4156,6 +4163,8 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
+
+  swiper@12.0.3: {}
 
   tailwindcss@4.1.17: {}
 
