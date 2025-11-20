@@ -1,6 +1,5 @@
 import Home from "./client";
 
-export const runtime = "edge";
 export type InitialData = {
   location_id: number;
   city?: string;
