@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@googlemaps/markerclusterer": "^2.6.2",
-    "@mapfirst.ai/core": "0.0.8",
-    "@mapfirst.ai/react": "0.0.9",
+    "@mapfirst.ai/core": "0.0.9",
+    "@mapfirst.ai/react": "0.0.10",
     "@react-google-maps/api": "^2.20.7",
     "mapbox-gl": "^3.16.0",
     "next": "16.0.1",
@@ -29,5 +29,11 @@
     "eslint-config-next": "16.0.1",
     "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "@mapfirst.ai/core": "file:../mapfirst-sdk/packages/core",
+      "@mapfirst.ai/react": "file:../mapfirst-sdk/packages/react"
+    }
   }
 }

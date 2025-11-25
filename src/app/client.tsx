@@ -12,6 +12,7 @@ import {
   useMapFirstCore,
   useMapboxAttachment,
   useSmartFilterSearch,
+  useMapFirstBoundsSearch,
   SmartFilter,
   Filter,
 } from "@mapfirst.ai/react";
@@ -46,6 +47,9 @@ export default function Home({ locationData }: { locationData: InitialData }) {
     error: searchError,
   } = useSmartFilterSearch(mapFirst);
 
+  const { performBoundsSearch, isSearching: isBoundsSearching } =
+    useMapFirstBoundsSearch(mapFirst);
+
   const selectedMarker = state?.selectedPropertyId ?? null;
   const setSelectedMarker = (id: number | null) => {
     if (mapFirst) {
@@ -56,6 +60,7 @@ export default function Home({ locationData }: { locationData: InitialData }) {
   // Get properties and other state
   const properties = state?.properties || [];
   const isSearching = state?.isSearching || false;
+  const pendingBounds = state?.pendingBounds || null;
 
   // Sync activeIndex with selectedPropertyId
   useEffect(() => {
@@ -126,7 +131,7 @@ export default function Home({ locationData }: { locationData: InitialData }) {
     return () => {
       mapInstance.remove();
     };
-  }, []);
+  }, [mapFirst]);
 
   // Attach map to MapFirst SDK
   useMapboxAttachment({
@@ -337,6 +342,22 @@ export default function Home({ locationData }: { locationData: InitialData }) {
           }}
         />
       </div>
+
+      {/* Search this area button */}
+      {pendingBounds && !state?.isSearching && !isBoundsSearching && (
+        <div
+          className="absolute left-1/2 transform -translate-x-1/2 z-60"
+          style={{ top: "100px" }}
+        >
+          <button
+            onClick={performBoundsSearch}
+            disabled={isBoundsSearching}
+            className="px-6 py-2 bg-white text-gray-900 font-semibold text-sm rounded-full shadow-lg border border-gray-300 hover:bg-gray-50 active:bg-gray-100 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isBoundsSearching ? "Searching..." : "Search this area"}
+          </button>
+        </div>
+      )}
 
       {/* Horizontal Scrollable Cards at Bottom */}
       <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/50 to-transparent pb-4 pt-8 z-30">
