@@ -12,7 +12,7 @@ importers:
         specifier: ^2.6.2
         version: 2.6.2
       '@mapfirst.ai/core':
-        specifier: 0.0.9
+        specifier: ^0.0.9
         version: 0.0.9
       '@mapfirst.ai/react':
         specifier: 0.0.10
