@@ -4,10 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  '@mapfirst.ai/core': file:../mapfirst-sdk/packages/core
-  '@mapfirst.ai/react': file:../mapfirst-sdk/packages/react
-
 importers:
 
   .:
@@ -16,11 +12,11 @@ importers:
         specifier: ^2.6.2
         version: 2.6.2
       '@mapfirst.ai/core':
-        specifier: file:../mapfirst-sdk/packages/core
-        version: file:../mapfirst-sdk/packages/core
+        specifier: 0.0.9
+        version: 0.0.9
       '@mapfirst.ai/react':
-        specifier: file:../mapfirst-sdk/packages/react
-        version: file:../mapfirst-sdk/packages/react(react@19.2.0)
+        specifier: 0.0.10
+        version: 0.0.10(react@19.2.0)
       '@react-google-maps/api':
         specifier: ^2.20.7
         version: 2.20.7(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -389,11 +385,11 @@ packages:
     resolution: {integrity: sha512-Es6WcD0nO5l+2BOQS4uLfNPYQaNDfbot3X1XUoloz+x0mPDS3eeORZJl06HXjwBG1fOGwCRnzK88LMdxKRrd6Q==}
     engines: {node: '>=6.0.0'}
 
-  '@mapfirst.ai/core@file:../mapfirst-sdk/packages/core':
-    resolution: {directory: ../mapfirst-sdk/packages/core, type: directory}
+  '@mapfirst.ai/core@0.0.9':
+    resolution: {integrity: sha512-XwRzLP0jT0/iOmEk+hP3tRV+tUqUgbi4mQ5Nv4WTUkQEic23Peb0jTLryM4IQuLrd8dc40gkkDlEhLgqChs9bQ==}
 
-  '@mapfirst.ai/react@file:../mapfirst-sdk/packages/react':
-    resolution: {directory: ../mapfirst-sdk/packages/react, type: directory}
+  '@mapfirst.ai/react@0.0.10':
+    resolution: {integrity: sha512-wt4mBprjv4eJANgmysjMh4rQ3LxgqTqHlB18IpzNNXfvTlXGf3GjMIk61/6fC9PHwWt83WtZa5fFN6pM9REyeA==}
     peerDependencies:
       react: '>=17 || >=18'
 
@@ -2406,11 +2402,11 @@ snapshots:
 
   '@mapbox/whoots-js@3.1.0': {}
 
-  '@mapfirst.ai/core@file:../mapfirst-sdk/packages/core': {}
+  '@mapfirst.ai/core@0.0.9': {}
 
-  '@mapfirst.ai/react@file:../mapfirst-sdk/packages/react(react@19.2.0)':
+  '@mapfirst.ai/react@0.0.10(react@19.2.0)':
     dependencies:
-      '@mapfirst.ai/core': file:../mapfirst-sdk/packages/core
+      '@mapfirst.ai/core': 0.0.9
       react: 19.2.0
 
   '@napi-rs/wasm-runtime@0.2.12':
