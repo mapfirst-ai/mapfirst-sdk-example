@@ -12,11 +12,11 @@ importers:
         specifier: ^2.6.2
         version: 2.6.2
       '@mapfirst.ai/core':
-        specifier: ^0.0.10
-        version: 0.0.10
+        specifier: ^0.0.13
+        version: 0.0.13
       '@mapfirst.ai/react':
-        specifier: ^0.0.12
-        version: 0.0.12(react@19.2.0)
+        specifier: ^0.0.15
+        version: 0.0.15(react@19.2.0)
       '@react-google-maps/api':
         specifier: ^2.20.7
         version: 2.20.7(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -385,11 +385,11 @@ packages:
     resolution: {integrity: sha512-Es6WcD0nO5l+2BOQS4uLfNPYQaNDfbot3X1XUoloz+x0mPDS3eeORZJl06HXjwBG1fOGwCRnzK88LMdxKRrd6Q==}
     engines: {node: '>=6.0.0'}
 
-  '@mapfirst.ai/core@0.0.10':
-    resolution: {integrity: sha512-i8H9/Uc46bc/bmssF/nLwVeFe/L0HKcDf5e9UI4ThXVrOLP6F4WZzAls0yyBYPY9y+h1TzRD9B/EM9u5nzetAA==}
+  '@mapfirst.ai/core@0.0.13':
+    resolution: {integrity: sha512-WFwMBaZmoM7hDPVRLCOxHuNIwgDGZ5smBGfaZms6OqXl2kEpJtwcOU5as2fubPSTkVXURegmijVociLEr9gUkg==}
 
-  '@mapfirst.ai/react@0.0.12':
-    resolution: {integrity: sha512-iEjZEYzxM7nFuHQfRYKqbsONUKSKRXoYHk8mmuBI8yMaV6i2L+98XUVKw29C5WWfcnC98MwrwJhyzPx7DPHlxQ==}
+  '@mapfirst.ai/react@0.0.15':
+    resolution: {integrity: sha512-yyONZRJz3/LZLxPnNl/jiJ6g/pCwb7pWs3CEN4wF6wzWtBz14NSGjyTGCbqLa3AwzY/MrF/lCqg2O8zyheGw8Q==}
     peerDependencies:
       react: '>=17 || >=18'
 
@@ -2398,11 +2398,11 @@ snapshots:
 
   '@mapbox/whoots-js@3.1.0': {}
 
-  '@mapfirst.ai/core@0.0.10': {}
+  '@mapfirst.ai/core@0.0.13': {}
 
-  '@mapfirst.ai/react@0.0.12(react@19.2.0)':
+  '@mapfirst.ai/react@0.0.15(react@19.2.0)':
     dependencies:
-      '@mapfirst.ai/core': 0.0.10
+      '@mapfirst.ai/core': 0.0.13
       react: 19.2.0
 
   '@napi-rs/wasm-runtime@0.2.12':

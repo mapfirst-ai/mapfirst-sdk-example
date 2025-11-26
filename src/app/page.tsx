@@ -10,10 +10,8 @@ export type InitialData = {
 };
 
 export default async function MapPage({
-  params,
   searchParams,
 }: {
-  params: Promise<{ mfid: string; lang: string }>;
   searchParams: Promise<{
     city?: string;
     country?: string;
@@ -23,9 +21,7 @@ export default async function MapPage({
     color?: string;
   }>;
 }) {
-  const { mfid, lang } = await params;
-  const { city, country, currency, variant, query, color } = await searchParams;
-  // const defaultCurrency = getCurrencyForLocale(lang);
+  const { city, country, currency } = await searchParams;
 
   const initial_data: InitialData = {
     longitude: -6.260296,
