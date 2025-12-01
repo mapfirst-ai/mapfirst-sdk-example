@@ -9,10 +9,7 @@ declare global {
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import {
-  useMapFirstCore,
-  useMapboxAttachment,
-  useSmartFilterSearch,
-  useMapFirstBoundsSearch,
+  useMapFirst,
   SmartFilter,
   Filter,
   processApiFilters,
@@ -33,24 +30,16 @@ export default function Home({ locationData }: { locationData: InitialData }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [filters, setFilters] = useState<Filter[]>([]);
 
-  const { mapFirst, state } = useMapFirstCore({
+  const {
+    instance: mapFirst,
+    state,
+    setSelectedMarker,
+    smartFilterSearch,
+    boundsSearch,
+    attachMapbox,
+  } = useMapFirst({
     initialLocationData: locationData,
   });
-
-  const { search } = useSmartFilterSearch(mapFirst);
-
-  const { performBoundsSearch, isSearching: isBoundsSearching } =
-    useMapFirstBoundsSearch(mapFirst);
-
-  const selectedMarker = state?.selectedPropertyId ?? null;
-  const setSelectedMarker = useCallback(
-    (id: number | null) => {
-      if (mapFirst) {
-        mapFirst.setSelectedMarker(id);
-      }
-    },
-    [mapFirst]
-  );
 
   // Get properties and other state
   const properties = useMemo(
@@ -59,6 +48,7 @@ export default function Home({ locationData }: { locationData: InitialData }) {
   );
   const isSearching = state?.isSearching || false;
   const pendingBounds = state?.pendingBounds || null;
+  const selectedMarker = state?.selectedPropertyId ?? null;
 
   // Initialize Mapbox map
   useEffect(() => {
@@ -85,14 +75,15 @@ export default function Home({ locationData }: { locationData: InitialData }) {
 
   // Attach map to MapFirst SDK
   const mapboxNamespace = mapboxgl as unknown as MapboxNamespace;
-  useMapboxAttachment({
-    mapFirst,
-    map,
-    mapboxgl: mapboxNamespace,
-    onMarkerClick: (marker) => {
-      console.log("Marker clicked:", marker);
-    },
-  });
+  useEffect(() => {
+    if (map && mapFirst) {
+      attachMapbox(map, mapboxNamespace, {
+        onMarkerClick: (marker) => {
+          console.log("Marker clicked:", marker);
+        },
+      });
+    }
+  }, [map, mapFirst, attachMapbox, mapboxNamespace]);
 
   const handleFlyTo = useCallback(
     (lon: number, lat: number) => {
@@ -112,7 +103,7 @@ export default function Home({ locationData }: { locationData: InitialData }) {
         ? convertToApiFilters(currentFilters)
         : undefined;
 
-      await search({
+      await smartFilterSearch.search({
         query: query.trim(),
         filters: apiFilters,
         onProcessFilters: (responseFilters) => {
@@ -172,17 +163,17 @@ export default function Home({ locationData }: { locationData: InitialData }) {
       </div>
 
       {/* Search this area button */}
-      {pendingBounds && !state?.isSearching && !isBoundsSearching && (
+      {pendingBounds && !state?.isSearching && !boundsSearch.isSearching && (
         <div
           className="absolute left-1/2 transform -translate-x-1/2 z-60"
-          style={{ top: "100px" }}
+          style={{ top: "75px" }}
         >
           <button
-            onClick={performBoundsSearch}
-            disabled={isBoundsSearching}
+            onClick={boundsSearch.perform}
+            disabled={boundsSearch.isSearching}
             className="px-6 py-2 bg-white text-gray-900 font-semibold text-sm rounded-full shadow-lg border border-gray-300 hover:bg-gray-50 active:bg-gray-100 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isBoundsSearching ? "Searching..." : "Search this area"}
+            {boundsSearch.isSearching ? "Searching..." : "Search this area"}
           </button>
         </div>
       )}

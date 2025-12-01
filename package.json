@@ -11,7 +11,7 @@
   "dependencies": {
     "@googlemaps/markerclusterer": "^2.6.2",
     "@mapfirst.ai/core": "^0.0.13",
-    "@mapfirst.ai/react": "^0.0.15",
+    "@mapfirst.ai/react": "^0.0.16",
     "@react-google-maps/api": "^2.20.7",
     "mapbox-gl": "^3.16.0",
     "next": "16.0.1",
