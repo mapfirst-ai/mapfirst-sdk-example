@@ -100,15 +100,15 @@ export const PropertyCard: FunctionComponent<PropertyCardProps> = ({
         !isPortrait ? "border border-tripadvisor-foreground" : ""
       } ${
         selected && !isPortrait
-          ? "!border-tripadvisor-green border-4 shadow-2xl"
+          ? "border-tripadvisor-green! border-4 shadow-2xl"
           : ""
       }
        h-full w-full
         ${isPortrait ? "gap-3" : "gap-2 p-1"}`}
     >
       <div
-        className={`relative w-[40%] rounded-md overflow-hidden flex-shrink-0 image-loading ${
-          isPortrait ? "" : "max-w-[80px] md:max-w-[100px]"
+        className={`relative w-[40%] rounded-md overflow-hidden shrink-0 image-loading ${
+          isPortrait ? "" : "max-w-20 md:max-w-[100px]"
         }`}
       >
         <img
@@ -204,7 +204,7 @@ export const PropertyCard: FunctionComponent<PropertyCardProps> = ({
                 )
               )} */}
               <p
-                className={`flex flex-wrap !line-clamp-1 overflow-ellipsis items-center break-all text-tripadvisor-green-darkest w-full ${
+                className={`flex flex-wrap line-clamp-1! overflow-ellipsis items-center break-all text-tripadvisor-green-darkest w-full ${
                   isPortrait
                     ? "text-sm"
                     : "text-[11px] [@media(min-height:48rem)]:text-sm"

@@ -7,13 +7,11 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useRef,
   useState,
 } from "react";
 import {
   dictionaries,
   fallbackLocale,
-  getMessages,
   Locale,
   Messages,
   resolveLocale,
