@@ -1,0 +1,107 @@
+{
+  "header": {
+    "title": "Buscador de hoteles",
+    "logoAlt": "Tripadvisor"
+  },
+  "filter": {
+    "checkIn": "Entrada",
+    "checkOut": "Salida",
+    "adults": {
+      "label": "Adultos",
+      "one": "adulto",
+      "other": "adultos"
+    },
+    "rooms": {
+      "label": "Habitaciones",
+      "one": "habitación",
+      "other": "habitaciones"
+    },
+    "buttons": {
+      "cancel": "Cancelar",
+      "update": "Actualizar"
+    },
+    "summary": "{{checkIn}} → {{checkOut}} • {{adults}} {{adultsLabel}} • {{rooms}} {{roomsLabel}}",
+    "aria": {
+      "close": "Cerrar filtro",
+      "decreaseAdults": "Reducir adultos",
+      "increaseAdults": "Aumentar adultos",
+      "decreaseRooms": "Reducir habitaciones",
+      "increaseRooms": "Aumentar habitaciones"
+    },
+    "validation": {
+      "invalidLocation": "Selecciona una ubicación válida en la lista.",
+      "missingDates": "Selecciona las fechas de entrada y salida.",
+      "invalidRange": "La fecha de salida debe ser posterior a la de entrada."
+    }
+  },
+  "locationSearch": {
+    "placeholder": "Buscar lugares",
+    "clear": "Borrar búsqueda"
+  },
+  "datePicker": {
+    "instructions": "Selecciona fechas para encontrar los mejores precios para tu viaje",
+    "close": "Cerrar selector de fechas"
+  },
+  "hotelCard": {
+    "awardAlt": "Distinción",
+    "startingAt": "Desde",
+    "learnMore": "Más información"
+  },
+  "hotelList": {
+    "searchThisArea": "Buscar en esta zona",
+    "aria": {
+      "previous": "Anterior",
+      "next": "Siguiente"
+    }
+  },
+  "markerDot": {
+    "showPrice": "Mostrar {{price}}",
+    "showMarker": "Mostrar marcador"
+  },
+  "owl": {
+    "loading": "Buscando las mejores ofertas para ti...",
+    "empty": "No encontramos resultados; prueba ajustando los filtros."
+  },
+  "smartFilter": {
+    "minRating": {
+      "label": "{{value}} o más",
+      "suffix": "o más",
+      "setTo": "Establecer calificación mínima en {{rating}}",
+      "remove": "Quitar filtro de calificación mínima"
+    },
+    "priceRange": {
+      "max": "MÁX",
+      "remove": "Quitar filtro de rango de precios"
+    },
+    "restaurantPriceLevel": {
+      "label": "Precio",
+      "remove": "Quitar filtro de nivel de precio",
+      "none": "Cualquiera",
+      "options": {
+        "midRange": "$$ - $$$",
+        "fineDining": "$$$$",
+        "cheapEats": "$"
+      }
+    },
+    "toast": {
+      "locationRequired": "Selecciona primero una ubicación"
+    },
+    "nav": {
+      "previous": "Filtros anteriores",
+      "next": "Filtros siguientes"
+    },
+    "placeholder": "Añade detalles: precio, servicios, fechas",
+    "typingPrompt": "¿Estancia de ensueño? ¡Solo empieza a escribir!",
+    "clearAll": "Borrar todo"
+  },
+  "splash": {
+    "heroAlt": "Cuatro amigos caminando juntos por una calle empedrada",
+    "heading": {
+      "line1": "Empieza a planificar",
+      "line2": "la escapada",
+      "line3": "perfecta"
+    },
+    "logoAlt": "Logotipo de TripUp",
+    "cta": "Toca para comenzar"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "header": {
+    "title": "Hotel Finder",
+    "logoAlt": "Tripadvisor"
+  },
+  "filter": {
+    "checkIn": "Check in",
+    "checkOut": "Check out",
+    "adults": {
+      "label": "Adults",
+      "one": "adult",
+      "other": "adults"
+    },
+    "rooms": {
+      "label": "Rooms",
+      "one": "room",
+      "other": "rooms"
+    },
+    "buttons": {
+      "cancel": "Cancel",
+      "update": "Update"
+    },
+    "summary": "{{checkIn}} → {{checkOut}} • {{adults}} {{adultsLabel}} • {{rooms}} {{roomsLabel}}",
+    "aria": {
+      "close": "Close filter",
+      "decreaseAdults": "Decrease adults",
+      "increaseAdults": "Increase adults",
+      "decreaseRooms": "Decrease rooms",
+      "increaseRooms": "Increase rooms"
+    },
+    "validation": {
+      "invalidLocation": "Please select a valid location from the dropdown.",
+      "missingDates": "Please select both check-in and check-out dates.",
+      "invalidRange": "Check-out date must be after check-in date."
+    }
+  },
+  "locationSearch": {
+    "placeholder": "Search places",
+    "clear": "Clear search"
+  },
+  "datePicker": {
+    "instructions": "Select dates to find the best prices for your trip",
+    "close": "Close date picker"
+  },
+  "hotelCard": {
+    "awardAlt": "Award",
+    "startingAt": "Starting at",
+    "learnMore": "Learn more"
+  },
+  "hotelList": {
+    "searchThisArea": "Search this area",
+    "aria": {
+      "previous": "Previous",
+      "next": "Next"
+    }
+  },
+  "markerDot": {
+    "showPrice": "Show {{price}}",
+    "showMarker": "Show marker"
+  },
+  "owl": {
+    "loading": "Fetching best deals for you...",
+    "empty": "No results found, try adjusting your filters."
+  },
+  "smartFilter": {
+    "minRating": {
+      "label": "{{value}} & up",
+      "suffix": "& up",
+      "setTo": "Set minimum rating to {{rating}}",
+      "remove": "Remove minimum rating filter"
+    },
+    "priceRange": {
+      "max": "MAX",
+      "remove": "Remove price range filter"
+    },
+    "restaurantPriceLevel": {
+      "label": "Price",
+      "remove": "Remove restaurant price level filter",
+      "none": "Any",
+      "options": {
+        "midRange": "$$ - $$$",
+        "fineDining": "$$$$",
+        "cheapEats": "$"
+      }
+    },
+    "toast": {
+      "locationRequired": "Please select a location first"
+    },
+    "nav": {
+      "previous": "Previous filters",
+      "next": "Next filters"
+    },
+    "placeholder": "Add details: price, amenities, dates",
+    "typingPrompt": "Dream stay? Just start typing!",
+    "clearAll": "Clear all"
+  },
+  "splash": {
+    "heroAlt": "Four friends walking together on a cobblestone street",
+    "heading": {
+      "line1": "Start planning",
+      "line2": "the perfect",
+      "line3": "getaway!"
+    },
+    "logoAlt": "TripUp logo",
+    "cta": "Tap to start"
+  }
+}

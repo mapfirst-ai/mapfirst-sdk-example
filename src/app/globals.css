@@ -5,11 +5,14 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-tripadvisor-original: #01ea5b;
+  --color-tripadvisor-green: #01ea5b;
+  --color-tripadvisor-green-hover: #00d052;
+  --color-tripadvisor-green-dark: #03852e;
+  --color-tripadvisor-green-darkest: #012b11;
+  --color-foreground-color: #012b11;
+  --color-tripadvisor-yellow: #ffef0e;
 }
 
 @media (prefers-color-scheme: dark) {

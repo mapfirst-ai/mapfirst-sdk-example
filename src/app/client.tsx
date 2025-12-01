@@ -21,7 +21,7 @@ import {
 import type { MapboxNamespace } from "@mapfirst.ai/core";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { InitialData } from "./page";
-import PropertyCarousel from "./PropertyCarousel";
+import PropertyCarousel from "../components/PropertyCarousel";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -165,9 +165,9 @@ export default function Home({ locationData }: { locationData: InitialData }) {
           onFilterChange={handleFilterChange}
           onValueChange={setSearchQuery}
           currency={locationData.currency || "USD"}
-          containerStyle={{
-            backgroundColor: "transparent",
-          }}
+          // containerStyle={{
+          //   backgroundColor: "transparent",
+          // }}
         />
       </div>
 

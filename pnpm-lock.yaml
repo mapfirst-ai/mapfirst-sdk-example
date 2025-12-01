@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@mapfirst.ai/react': file:../mapfirst-sdk/packages/react
+
 importers:
 
   .:
@@ -15,8 +18,8 @@ importers:
         specifier: ^0.0.13
         version: 0.0.13
       '@mapfirst.ai/react':
-        specifier: ^0.0.15
-        version: 0.0.15(react@19.2.0)
+        specifier: file:../mapfirst-sdk/packages/react
+        version: file:../mapfirst-sdk/packages/react(react@19.2.0)
       '@react-google-maps/api':
         specifier: ^2.20.7
         version: 2.20.7(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -388,8 +391,8 @@ packages:
   '@mapfirst.ai/core@0.0.13':
     resolution: {integrity: sha512-WFwMBaZmoM7hDPVRLCOxHuNIwgDGZ5smBGfaZms6OqXl2kEpJtwcOU5as2fubPSTkVXURegmijVociLEr9gUkg==}
 
-  '@mapfirst.ai/react@0.0.15':
-    resolution: {integrity: sha512-yyONZRJz3/LZLxPnNl/jiJ6g/pCwb7pWs3CEN4wF6wzWtBz14NSGjyTGCbqLa3AwzY/MrF/lCqg2O8zyheGw8Q==}
+  '@mapfirst.ai/react@file:../mapfirst-sdk/packages/react':
+    resolution: {directory: ../mapfirst-sdk/packages/react, type: directory}
     peerDependencies:
       react: '>=17 || >=18'
 
@@ -2400,7 +2403,7 @@ snapshots:
 
   '@mapfirst.ai/core@0.0.13': {}
 
-  '@mapfirst.ai/react@0.0.15(react@19.2.0)':
+  '@mapfirst.ai/react@file:../mapfirst-sdk/packages/react(react@19.2.0)':
     dependencies:
       '@mapfirst.ai/core': 0.0.13
       react: 19.2.0
