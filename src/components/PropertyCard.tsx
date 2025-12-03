@@ -228,9 +228,7 @@ export const PropertyCard: FunctionComponent<PropertyCardProps> = ({
         )}
         {url && (
           <a
-            href={
-              "http://localhost:8000/redirect?url=" + encodeURIComponent(url)
-            }
+            href={url}
             target="_blank"
             className={`bg-tripadvisor-green text-foreground-color border border-foreground-color ease-in-out hover:scale-[105%] rounded-full px-4 font-medium font-tripsans cursor-pointer transition-all select-none w-full text-center ${
               isPortrait
